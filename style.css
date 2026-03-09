@@ -1,0 +1,244 @@
+/* Định nghĩa các màu Neon chủ đạo */
+:root {
+    --bg-dark: #050509; /* Nền tối gần như đen */
+    --card-bg: #10101a; /* Nền thẻ tối hơn */
+    --neon-pink: #ff0055;
+    --neon-cyan: #00ffff;
+    --neon-green: #00ff88;
+    --neon-yellow: #ffdd00;
+    --text-main: #e0e0e0;
+}
+
+body {
+    font-family: 'Orbitron', 'Segoe UI', sans-serif; /* Font chữ kiểu tương lai */
+    background-color: var(--bg-dark);
+    margin: 0;
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Hiệu ứng Header Neon */
+.cyber-header {
+    background: rgba(16, 16, 26, 0.9);
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-cyan);
+    backdrop-filter: blur(5px);
+}
+
+.logo-neon {
+    color: var(--neon-cyan);
+    font-weight: 900;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+    letter-spacing: 2px;
+}
+
+/* Cấu trúc Grid cho trang tính */
+.container-cyber {
+    width: 90%;
+    max-width: 1300px;
+    margin: 50px auto;
+}
+
+.calc-card-neon {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 40px;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Thêm hiệu ứng quét sáng chéo qua thẻ (điên khùng hơn) */
+.calc-card-neon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+    transform: rotate(45deg);
+    animation: scan 10s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: rotate(45deg) translateY(-100%); }
+    100% { transform: rotate(45deg) translateY(100%); }
+}
+
+/* Input Panel kiểu Cyber */
+.input-panel-cyber {
+    position: relative;
+    z-index: 1;
+}
+
+.input-panel-cyber h3 {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+    border-bottom: 2px solid var(--neon-pink);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.input-group-neon {
+    margin-bottom: 20px;
+}
+
+.input-group-neon label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #888;
+}
+
+.input-group-neon label i {
+    width: 25px;
+    color: var(--neon-cyan);
+}
+
+/* Tùy chỉnh Input, Select */
+input, select {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    outline: none;
+}
+
+/* Ô xem trước số tiền vay (Neon Pink nổi bật) */
+.field-preview-neon {
+    background: rgba(255, 0, 85, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--neon-pink);
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.field-preview-neon label {
+    color: var(--neon-pink);
+    font-weight: bold;
+}
+
+/* Nút bấm Cyberpunk */
+.btn-cyber-primary {
+    background: transparent;
+    color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    padding: 18px;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: 0 0 10px var(--neon-green);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.btn-cyber-primary:hover {
+    background: var(--neon-green);
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px var(--neon-green);
+    transform: translateY(-3px);
+}
+
+/* Phần hiển thị kết quả */
+.summary-neon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.sum-card-neon {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.sum-lai { border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 221, 0, 0.2); }
+.sum-tong { border-color: var(--neon-green); box-shadow: 0 0 20px rgba(0, 255, 136, 0.2); }
+
+/* Bảng kết quả Cyber */
+.table-container-cyber {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: rgba(16, 16, 26, 0.8);
+    padding: 18px;
+    text-align: left;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+    border-bottom: 2px solid var(--neon-cyan);
+}
+
+td {
+    padding: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: 0.95rem;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Các lớp tiện ích màu Neon */
+.text-neon-cyan { color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
+.text-neon-pink { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+.text-neon-green { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
+.text-neon-yellow { color: var(--neon-yellow); text-shadow: 0 0 10px var(--neon-yellow); }
+
+/* Tùy chỉnh Slider (Điên khùng nhất) */
+.slider-wrapper input[type="range"] {
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+.slider-wrapper input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 25px;
+    width: 25px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -8px;
+    box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+    border: 3px solid white;
+}
