@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUDA NeoBank - Cyber Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cyber-header">
+        <div class="logo-neon">
+            <i class="fa-solid fa-microchip"></i> <span>YUDA NEOBANK</span>
+        </div>
+        <button onclick="dangXuat()" class="btn-neon-logout">
+            <i class="fa-solid fa-power-off"></i> THOÁT
+        </button>
+    </header>
+
+    <div class="container-cyber">
+        <div class="calc-card-neon">
+            <div class="input-panel-cyber">
+                <h3><i class="fa-solid fa-satellite-dish"></i> CẤU HÌNH KHOẢN VAY</h3>
+                
+                <div class="input-group-neon">
+                    <label><i class="fa-solid fa-building"></i> Giá trị BĐS (VNĐ)</label>
+                    <input type="number" id="giaTriTaiSan" value="1000000000" oninput="capNhatSoTienVay()">
+                </div>
+
+                <div class="input-group-neon">
+                    <label><i class="fa-solid fa-chart-line"></i> Tỷ lệ vay: <span id="labelTyLe" class="text-neon-cyan">70</span>%</label>
+                    <div class="slider-wrapper">
+                        <input type="range" id="sliderTyLe" min="10" max="100" step="5" value="70" oninput="capNhatSoTienVay()">
+                    </div>
+                </div>
+
+                <div class="field-preview-neon">
+                    <label>SỐ TIỀN VAY DỰ KIẾN:</label>
+                    <h2 id="displaySoTienVay" class="text-neon-pink">700,000,000 VNĐ</h2>
+                    <input type="hidden" id="soTienVay" value="700000000">
+                </div>
+
+                <div class="input-group-neon">
+                    <label><i class="fa-solid fa-hourglass-half"></i> Thời gian vay (Tháng)</label>
+                    <input type="number" id="thoiGianVay" value="60">
+                </div>
+
+                <div class="input-group-neon">
+                    <label><i class="fa-solid fa-percent"></i> Lãi suất (%/năm)</label>
+                    <input type="number" id="laiSuat" value="10">
+                </div>
+
+                <div class="input-group-neon">
+                    <label><i class="fa-solid fa-calendar-days"></i> Ngày giải ngân</label>
+                    <input type="date" id="ngayGiaiNgan">
+                </div>
+
+                <div class="input-group-neon">
+                    <label><i class="fa-solid fa-list-ul"></i> Hình thức trả</label>
+                    <select id="hinhThuc">
+                        <option value="giamDan">Dư nợ giảm dần</option>
+                        <option value="deu">Dư nợ đều (Góp đều)</option>
+                    </select>
+                </div>
+
+                <button onclick="tinhToan()" class="btn-cyber-primary">
+                    <i class="fa-solid fa-atom"></i> KHỞI TẠO MA TRẬN TÍNH TOÁN
+                </button>
+            </div>
+
+            <div class="result-panel-cyber">
+                <div class="summary-neon-grid">
+                    <div class="sum-card-neon sum-lai">
+                        <small>TỔNG LÃI PHẢI TRẢ</small>
+                        <h2 id="summaryLai" class="text-neon-yellow">0 VNĐ</h2>
+                    </div>
+                    <div class="sum-card-neon sum-tong">
+                        <small>TỔNG GỐC + LÃI</small>
+                        <h2 id="summaryTong" class="text-neon-green">0 VNĐ</h2>
+                    </div>
+                </div>
+                
+                <div class="table-container-cyber">
+                    <table id="detailsTable">
+                        <thead>
+                            <tr>
+                                <th>Kỳ trả nợ</th>
+                                <th>Tiền gốc</th>
+                                <th>Tiền lãi</th>
+                                <th>Tổng trả</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
